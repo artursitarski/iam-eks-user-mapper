@@ -28,9 +28,9 @@ spec:
           command:
             - ./app
             - --aws-iam-group
-            - devs
+            - devs;jenkins
             - --k8s-cap
-            - system:masters
+            - system:masters,cluster-admin;system:basic-user
       automountServiceAccountToken: true
       serviceAccountName: iam-eks-user-mapper
     metadata:

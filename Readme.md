@@ -12,8 +12,8 @@ The general overview for what this tool does can be found here: https://ygrene.t
 $ echo -n "secretkey" | base64
 ```
 5) Update the `AWS_REGION` environment variable in `kubernetes/deployment.yaml` if you aren't running in `us-west-2` with your EKS cluster
-6) Edit the `kubernetes/deployment.yaml` `command:` with both the IAM group name you want to provide access to, and the Kubernetes group each user in the group should be mapped to.
-(there is an example in the manifest already)
+6) Edit the `kubernetes/deployment.yaml` `command:` with both the IAM group[s] name you want to provide access to, and the Kubernetes group each user in the group should be mapped to.
+If you want to use more than one IAM group, just separate them with `;`. Each IAM group requires separate Kubernetes group[s]. Kubernetes groups sets should be separated by `;` and inside the set separate groups with `,` (there is an example in the manifest already)
 7) Finally:
 ```bash
 $ kubectl apply -f kubernetes/
